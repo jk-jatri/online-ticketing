@@ -1,0 +1,5 @@
+.home_banner {
+  background-image: url("../images/background/home_banner.jpg"), linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+  background-blend-mode: overlay;
+  background-size: cover;
+}

@@ -1,0 +1,35 @@
+/* @import url('./fonts/stylesheet.css'); */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Common Css Code will be Write Here */
+
+/* Profile Dropdown Start */
+.dropdown_single_menu{
+     @apply flex gap-3 items-center transform transition-colors duration-200 border-r-4 border-transparent text-black;
+}
+.profile_dropdown_menu{
+     @apply absolute right-0 top-7 w-60 px-5 py-3 bg-white rounded-lg shadow border mt-5;
+}
+/* Profile Dropdown End */
+
+
+/* Footer Start */
+.footer_bnt{
+     @apply uppercase text-sm text-white border-transparent hover:no-underline hover:text-gray-50;
+}
+
+.footer_social_btn{
+     @apply w-8 h-8 border-2 border-white bg-white rounded-full text-center py-1 mr-2 text-gray-600;
+}
+
+.footer_bottom_menu{
+     @apply text-white text-xs mr-6;
+}
+
+.footer_app_link{
+     @apply w-28 mr-6;
+}
+/* Footer End */

@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jatri-Online Ticketing</title>
+
+    <!-- Css -->
+    <link rel="stylesheet" href="../../src/css/default/tailwind.css" />
+    <link rel="stylesheet" href="../../src/css/manual-style.css" />
+    <link
+      rel="icon"
+      href="../../src/images/logo/favicon.svg"
+      type="image/gif"
+    />
+
+    <!-- Font Awesome link -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/48359289d4.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- jquery CDN -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.min.js"
+      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <!----- Header Start ----->
+    <div
+      class="
+        corporate_bg_color
+        text-white
+        shadow
+        sticky
+        z-50
+        top-0
+        left-0
+        right-0
+      "
+    >
+      <nav
+        class="
+          py-2
+          md:py-4
+          sm:px-10
+          2xl:container 2xl:mx-auto
+          flex
+          items-center
+          justify-between
+          flex-wrap
+        "
+      >
+        <div class="flex items-center flex-shrink-0 mr-6">
+          <a
+            href="https://jatri.co/"
+            class="font-semibold text-xl tracking-tight"
+          >
+            <img
+              src="../../src/images/logo/logoWhite.svg"
+              alt=""
+              class="w-28"
+            />
+          </a>
+        </div>
+
+        <label
+          class="
+            block
+            lg:hidden
+            cursor-pointer
+            flex
+            items-center
+            px-3
+            py-2
+            border
+            rounded
+            border-teal-400
+            hover:corporate_color hover:border-gray-400
+          "
+          for="menu-toggle"
+          ><svg
+            class="fill-current h-3 w-3"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title>Menu</title>
+            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" /></svg
+        ></label>
+        <input class="hidden" type="checkbox" id="menu-toggle" />
+
+        <div
+          class="
+            hidden
+            w-full
+            block
+            flex-grow
+            lg:flex lg:items-center lg:w-auto
+          "
+          id="menu"
+        >
+          <div class="text-sm lg:flex-grow">
+            <a
+              href="../why-us/"
+              class="block mt-4 lg:inline-block lg:mt-0 mr-4 body_text"
+              >Why Us</a
+            >
+            <a
+              href="#"
+              class="block mt-4 lg:inline-block lg:mt-0 mr-4 body_text"
+              >About Us</a
+            >
+            <a
+              href="../career"
+              class="block mt-4 lg:inline-block lg:mt-0 mr-4 body_text"
+              >Career</a
+            >
+            <a
+              href="../blog/"
+              class="block mt-4 lg:inline-block lg:mt-0 mr-4 body_text"
+              >Blog</a
+            >
+            <a
+              href="../contact-us/"
+              class="block mt-4 lg:inline-block lg:mt-0 mr-4 body_text"
+              >Contact Us</a
+            >
+          </div>
+          <div class="block">
+            <div class="flex-grow lg:flex justify-between">
+              <div class="dropdown-container">
+                <div class="dropdown-toggle click-dropdown">Others</div>
+                <div class="dropdown-menu">
+                  <ul>
+                    <li>
+                      <a href="../others/rideSharingGuideline.html">
+                        RIDE SHARING GUIDELINE
+                      </a>
+                    </li>
+                    <li>
+                      <a href="../others/enlistmentCertificate.html">
+                        ENLISTMENT CERTIFICATE
+                      </a>
+                    </li>
+                    <li>
+                      <a href="../others/driverAppManual.html">
+                        JATRI DRIVER APP
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://corona.gov.bd/">COVID-19 INFO</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="dropdown-container">
+                <div class="dropdown-toggle click-dropdown">
+                  <i class="fas fa-globe"></i> English
+                </div>
+                <div class="dropdown-menu">
+                  <ul>
+                    <li>
+                      <a href="#"><i class="fas fa-globe"></i> English</a>
+                    </li>
+                    <!-- <li>
+                                        <a href="#"><i class="fas fa-globe"></i> Bangla</a>
+                                    </li> -->
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <!----- Header End ----->
+
+    <section class="relative">
+      <div
+        class="
+          corporate_bg_color
+          flex
+          justify-center
+          items-center
+          contact_us_head
+        "
+      >
+        <h2 class="text-5xl">Privacy Policies</h2>
+      </div>
+
+      <div class="contact_form">
+        <div class="container mx-auto">
+          <div class="grid grid-cols-6 gap-4">
+            <div class="col-start-2 col-span-4 conditions">
+              <p class="corporate_color">
+                By using our application, you agree to our usage and disclosure
+                of your personal data according to our privacy policy.
+              </p>
+              <br />
+              <p class="corporate_color">
+                Collection of Personally Data and Associated Data
+              </p>
+              <p>
+                When you begin using Jatri App, we will gather and save the
+                information you provide. The purpose of this is to ensure an
+                effective, dynamic and secure experience for our users. It will
+                enable us to provide services and features that will be
+                customized according to your requirements and convenience.
+                <br />
+                The information you provide to us will dismiss your anonymity.
+                We will provide options for you to choose mandatory or
+                non-mandatory information to provide. Our users will always have
+                the freedom to not provide certain information by refusing to
+                use certain features of our App.
+              </p>
+              <br />
+              <p class="corporate_color">Collecting data</p>
+              <p>
+                We may collect data on particular pages of our App in order to
+                evaluate our web page flow, ensure promotional competency, and
+                promote trust and security.
+                <br />
+                We collect personally identifiable information (address, name,
+                phone number, credit card/debit card etc.) about you when you
+                join our platform. You might be able to browse certain portions
+                of our app without registering, but most services require
+                registration. We will use your data to contact you about
+                promotional offers and materials.
+              </p>
+              <br />
+
+              <p class="corporate_color">Collecting data</p>
+              <br />
+              <p>
+                We require the permissions below from you in order to
+                effectively provide you services on our App:
+              </p>
+
+              <p class="corporate_color">
+                Our responsibilities do not comprise of the following:
+              </p>
+              <ul class="nested_ul">
+                <li>
+                  Usage of your Internet connection in order to ensure better
+                  GPS accuracy
+                </li>
+                <li>
+                  Usage of your ‘record audio’ feature for the sound based
+                  boarding for customers using Chirp
+                  <a href="https://developers.chirp.io/docs/"
+                    >(https://developers.chirp.io/docs/)</a
+                  >
+                </li>
+                <li>
+                  Usage of your GPS service to allow tracking, navigation and
+                  other operational requirements
+                </li>
+                <li>
+                  Usage of your network condition to provide better internet
+                  connectivity
+                </li>
+                <li>
+                  Accessing device boot/reboot data to ensure technical
+                  assistance
+                </li>
+                <li>
+                  Usage of your SMS service to allow login to the app and access
+                  the offline operation of the app when the internet is
+                  unavailable
+                </li>
+                <li>
+                  Usage of your network data (either mobile data services or
+                  wifi network) to allow server communications
+                </li>
+                <li>
+                  Usage of your wake lock to allow the app to work in the
+                  background
+                </li>
+                <li>
+                  Accessing the information about your phone's identity for the
+                  prevention of fraud and allowance of a better experience. The
+                  app cannot be used without this permission.
+                </li>
+                <li>
+                  Accessing your email address to attain a more personalized
+                  experience for our users.
+                </li>
+              </ul>
+              <br />
+              <p class="corporate_color">Demographic data</p>
+              <br />
+              <p>
+                To ensure improved service, we store and evaluate demographic
+                and profile data about our users' activity on our App.
+                <br />
+                To diagnose and solve issues of our server, we may require your
+                IP address. We may use it to attain demographic data as well.
+                <br />
+                The personal data we collect is used to market our offers and
+                provide our services. We will allow you the option to opt-out of
+                these facilities. The personal data will further be used to
+                solve problems, promote a secure service, collect money, analyze
+                customer interest, provide you with updates, offers and
+                facilities, and detect against fraudulent issues.
+                <br />
+                We might request you to fill out surveys (where you have to
+                provide age, income etc.) in order to personalize your journey
+                with us according to your needs.
+              </p>
+              <br />
+              <p class="corporate_color">Distribution of personal data</p>
+              <br />
+              <p>
+                We might use or share your personal data for these purposes:
+              </p>
+              <br />
+              <ul class="nested_ul">
+                <li>Replying to your queries and requests</li>
+                <li>evaluating commercial issues and announcements</li>
+                <li>
+                  Conducting Jatri’s administrative and business operations and
+                  ensure to the policies and procedures
+                </li>
+                <li>
+                  Tracking problems, payment, suspected illegal activities or
+                  fraud
+                </li>
+                <li>
+                  Following applicable rules, laws, regulations, codes of
+                  practice or guidelines issued by any legal or regulatory
+                  bodies which are binding on us.
+                </li>
+                <li>
+                  Conducting market research and surveys to enable us to
+                  understand and determine customer location, preferences.
+                </li>
+                <li>
+                  Along with Partners or third party service providers who
+                  provide operational services to us.
+                </li>
+                <li>
+                  External financial companies and their respective service
+                  providers for the purpose of providing the services on the
+                  App.
+                </li>
+                <li>
+                  Auditors and lawyers or third party advisors purposes which
+                  are reasonably related to the aforesaid.
+                </li>
+              </ul>
+
+              <p>
+                Any information shared with third parties stated above would be
+                shared under a non- disclosure agreement to be entered into with
+                such third party.
+                <br />
+                If, by any chance, we are merged with/acquired by another
+                business, we will share your personal data with them. This will
+                allow us to create a new structure or coalescence of business.
+                In case this occurs, the new business will be compelled to
+                follow our policy regarding your personal data.
+              </p>
+
+              <p class="corporate_color">Security Provision</p>
+              <br />
+              <p>
+                Our privacy policy dictates strong measures in order to protect
+                the data under our control. If you change your account data, we
+                ensure a secure server for it. We maintain regulations to
+                protect your data against any unauthorized access. But we do not
+                agree to handle any responsibility for the breach of your data
+                in case our system is illegally hacked or attacked by
+                unauthorized means or glitches despite our strong security
+                system. Furthermore, the data might be released or lost due to
+                technical aspects of the world wide web. If the loss of any data
+                you provide causes great harm to you, please refrain from using
+                this app.
+              </p>
+
+              <p class="corporate_color">Choice/Opt-Out</p>
+              <p>
+                We allow users the option to opt out of receiving promotional
+                data from us/our partners when they join our platform.
+                <br />
+                In case you are interested in removing your data from our
+                system, please contact support@jatri.co
+                <br />
+                You can always revise the data you provide and edit/correct any
+                data whenever you desire.
+              </p>
+
+              <p class="corporate_color">Promotional materials on the App</p>
+              <br />
+              <p>
+                Our app contains ads from third party software. These softwares
+                might collect data (excluding your name, address, email or
+                contact information) regarding your usage of our apps and other
+                apps to ensure the delivery of relatable and customized
+                advertisements to you.
+              </p>
+
+              <br />
+              <p class="corporate_color">Assent of the user</p>
+              <br />
+              <p>
+                By joining our platform and providing your personal data, you
+                agree to the gathering and usage of the data you supply
+                according to our Privacy Policy. You agree to share your data
+                according to our Privacy Policy.
+                <br />
+                If we do change our Privacy Policy, we will edit this page
+                accordingly. You will always remain aware of the data we gather
+                and its usage in our platform.
+              </p>
+
+              <p class="corporate_color">Third Party Services</p>
+              <br />
+              <p>
+                Our platform requires the usage of Google Places API for
+                Android. Please check their privacy policy here.
+              </p>
+              <br />
+              <p class="corporate_color">Jurisdiction/Laws of country</p>
+              <br />
+              <p>
+                The laws of Bangladesh maintain governance over our Privacy
+                Policy and the usage of our customers. In case a dispute arises
+                about our Privacy Policy, the courts of Dhaka maintain
+                jurisdiction over the proceedings.
+              </p>
+
+              <p class="corporate_color">NOTE :</p>
+              <br />
+              <p>
+                Jatri’s “Privacy Policy” may be edited without prior notice
+                whenever necessary. To ensure that you remain updated about
+                these edits, please make sure to review our policy carefully.
+              </p>
+              <br />
+              <p>
+                By using our application (“Jatri App”), you consent to all of
+                our terms and conditions. If you have issues with any of our
+                conditions, please refrain from using this application.
+              </p>
+              <br />
+
+              <p class="corporate_color">
+                Copyright ©2019 All rights reserved by Jatri.Inc
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!----- Footer Start ----->
+    <footer class="footer-1 corporate_bg_color py-8 sm:py-12">
+      <div class="px-5 sm:px-10 2xl:container 2xl:mx-auto">
+        <div class="sm:flex sm:flex-wrap 2xl:-mx-4 md:py-4">
+          <!-- footer part:1/3 -->
+          <div class="w-full md:w-1/3 xl:w-1/3">
+            <p class="text-md uppercase mb-2 text-white body_text font-light">
+              <span class="font-bold text-white">JATRI:</span> Empowering
+              Bangladesh to travel better
+            </p>
+
+            <!-- Footer Menu -->
+            <div class="flex mb-6">
+              <div class="w-1/2">
+                <ul class="list-none footer-links">
+                  <li class="mb-2">
+                    <a
+                      href="../../src/pages/about-us/"
+                      class="footer_bnt body_text"
+                      >about us</a
+                    >
+                  </li>
+                  <li class="mb-2">
+                    <a href="#" class="footer_bnt body_text">newsletter</a>
+                  </li>
+                  <li class="mb-2">
+                    <a href="../../src/pages/blog/" class="footer_bnt body_text"
+                      >blog</a
+                    >
+                  </li>
+                  <li class="mb-2">
+                    <a
+                      href="../../src/pages/career/"
+                      class="footer_bnt body_text"
+                      >career</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="w-1/2">
+                <ul class="list-none footer-links">
+                  <li class="mb-2">
+                    <a href="#" class="footer_bnt body_text">products</a>
+                  </li>
+                  <li class="mb-2">
+                    <a href="#" class="footer_bnt body_text">tickets</a>
+                  </li>
+                  <li class="mb-2">
+                    <a href="#" class="footer_bnt body_text">service</a>
+                  </li>
+                  <li class="mb-2">
+                    <a href="#" class="footer_bnt body_text">rent</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Social contact -->
+            <div class="flex justify-start">
+              <a
+                href="https://m.facebook.com/profile.php?id=836022770089201&ref=content_filter"
+                class="
+                  footer_social_btn
+                  hover:text-blue-600 hover:corporate_bg_color
+                "
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a
+                href="https://twitter.com/jatriapp?lang=en"
+                class="
+                  footer_social_btn
+                  hover:text-blue-400 hover:corporate_bg_color
+                "
+              >
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a
+                href="https://youtube.com/channel/UCOCwyP-pg5lJodKLvKmcWeQ"
+                class="
+                  footer_social_btn
+                  hover:text-red-600 hover:corporate_bg_color
+                "
+              >
+                <i class="fab fa-youtube"></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/company/jatri-app"
+                class="
+                  footer_social_btn
+                  hover:text-red-600 hover:corporate_bg_color
+                "
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- footer part:2/3 -->
+          <div class="w-full md:w-1/3 xl:w-1/3"></div>
+
+          <!-- footer part:3/3 -->
+          <div class="w-full md:w-1/3 sm:mx-auto mt-5 xl:mt-0 xl:ml-auto">
+            <div
+              class="
+                sm:flex
+                md:flex-col md:items-start
+                justify-between
+                md:justify-start
+                gap-6
+              "
+            >
+              <!-- <div class="flex flex-col justify-center items-center md:items-start md:justify-start"> -->
+              <img
+                src="../../src/images/others/stand.png"
+                alt=""
+                class="w-64 my-4"
+              />
+
+              <div class="flex flex-col items-start justify-start">
+                <div class="mt-5">
+                  <h5 class="mb-2 text-white font-semibold body_text">
+                    Newsletter
+                  </h5>
+                  <p class="text-white body_text">
+                    Subscribe for get new update at current time
+                  </p>
+                </div>
+
+                <!-- Subscribe form -->
+                <div class="mt-2 lg:flex justify-between">
+                  <input
+                    class="
+                      shadow
+                      appearance-none
+                      border
+                      rounded
+                      w-full
+                      py-2
+                      px-3
+                      mr-2
+                      text-grey-darker
+                      leading-tight
+                      focus:outline-none focus:shadow-outline
+                    "
+                    id="username"
+                    type="text"
+                    placeholder="Your Email"
+                  />
+                  <button
+                    class="
+                      bg-white
+                      hover:bg-black
+                      text-black
+                      hover:text-white
+                      font-light
+                      mt-2
+                      lg:mt-0
+                      py-2
+                      px-4
+                      rounded
+                      focus:outline-none focus:shadow-outline
+                    "
+                    type="button"
+                  >
+                    Subscribe
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer copyright section -->
+        <div
+          class="
+            flex flex-wrap
+            justify-center
+            lg:justify-start
+            -mx-4
+            mt-3
+            sm:mt-0
+            md:py-4
+            items-center
+            body_text
+          "
+        >
+          <p class="footer_bottom_menu">
+            &copy; Copyright |
+            <span class="uppercase">jatri 2021 all right reserved</span>
+          </p>
+          <p class="footer_bottom_menu">
+            <a href="../term-and-condition">Terms & Conditions</a>
+          </p>
+          <p class="footer_bottom_menu"><a href="#">Privacy Policy</a></p>
+          <div class="flex mt-4 lg:mt-0">
+            <a
+              href="https://play.google.com/store/apps/details?id=com.jatri.jatriuser"
+              ><img
+                src="./src/images/logo/play-store.png"
+                alt=""
+                class="footer_app_link"
+            /></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!----- Footer End ----->
+
+    <!-- Javascript -->
+    <script src="../../src/js/app.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
+      defer
+    ></script>
+    <script src="../../src/js/slelect.js"></script>
+    <script src="../../src/js/purecounter_vanilla.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  </body>
+</html>

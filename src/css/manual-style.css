@@ -1,0 +1,367 @@
+/* Custom CSS Code Will be here */
+/* font */
+/* open sans font-family: 'Open Sans', sans-serif; */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+/* open sans font-family: 'Montserrat', sans-serif; */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,900;1,700&display=swap");
+
+@import url("background_img.css");
+@import url("priceRange.css");
+@import url("rating.css");
+@import url("responsive.css");
+
+#menu-toggle:checked + #menu {
+  display: block;
+}
+
+img {
+  pointer-events: none;
+}
+
+.body_text {
+  font-family: "Open Sans", sans-serif;
+}
+
+.subheading_text {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+}
+
+.heading_text {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+}
+
+.corporate_bg_color {
+  background-color: #f04935;
+}
+
+.corporate_bg_dark {
+  background-color: #4d4d4f;
+}
+
+.corporate_color {
+  color: #f04935;
+}
+
+.corporate_color_dark {
+  color: #4d4d4f;
+}
+
+.corporate_dashed_right_border {
+  border-right: 1px dashed #f04935;
+}
+
+.corporate_solid_left_border {
+  border-left: 2px solid #f04935;
+}
+
+.corporate_solid_right_border {
+  border-right: 2px solid #f04935;
+}
+
+.corporate_solid_top_border {
+  border-top: 1px solid #f04935;
+}
+.corporate_solid_right_border1 {
+  border-right: 1px solid #f04935;
+}
+
+.corporate_solid_bottom_border {
+  border-bottom: 3px solid #f04935;
+}
+
+.dropdown_single_menu:hover {
+  border-right: 2px solid #f04935;
+}
+
+.corporate_border_1 {
+  border: 1px solid #f04935;
+}
+
+.corporate_border_2 {
+  border: 2px solid #f04935;
+}
+
+::selection {
+  background-color: #fff;
+  color: #f04935;
+}
+
+/* Availability boxes */
+.available {
+  background-color: #fff;
+  border: 1px solid #f04935;
+  color: #f04935;
+}
+.not_available {
+  background-color: #f04935;
+  border: 1px solid #f04935;
+  color: #fff !important;
+  cursor: not-allowed;
+}
+
+.booked {
+  background-color: #4d4d4f;
+  border: 1px solid #4d4d4f;
+  color: #fff !important;
+  cursor: not-allowed;
+}
+
+/* Bus Orientation start */
+.bus_orientation {
+  border-radius: 25px 10px 10px 25px;
+  border: 2px solid #f04935;
+  clear: both;
+}
+
+.bus_head {
+  border-right: 1px solid #f04935;
+  padding: 5px 15px 5px 5px;
+}
+
+.bus_head_image path {
+  fill: #f04935 !important;
+}
+
+.bus_body {
+  width: 100%;
+  padding: 5px 10px;
+}
+
+.seat_column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bus_seat {
+  border-radius: 5px;
+  margin: 5px 0;
+  height: 35px;
+  width: 35px;
+  font-size: 14px;
+  color: #f04935;
+}
+
+.hidden_seat {
+  height: 30px;
+  width: 30px;
+}
+
+/* Available button Select */
+.available:active,
+.available:focus,
+.available:target {
+  background-color: #4d4d4f;
+  border: 1px solid #4d4d4f;
+  color: #fff !important;
+}
+
+/* Scroll bar */
+body {
+  overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px white;
+  -webkit-box-shadow: inset 0 0 5px white;
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #f04935 !important;
+  -webkit-background: #f04935 !important;
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4d4d4f !important;
+  -webkit-background: #4d4d4f !important;
+}
+
+/* Select Menu ========> Dropdown css */
+.dropdown-container {
+  position: relative;
+  min-width: 150px;
+}
+.dropdown-container .dropdown-toggle {
+  padding: 1px 20px;
+  margin: 0 10px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: all ease-in-out 0.3s;
+  /* color: #fff; */
+}
+.dropdown-container .dropdown-toggle label {
+  cursor: pointer;
+  width: 100%;
+  /* color: #fff; */
+}
+.dropdown-container .dropdown-menu {
+  width: 100%;
+  box-shadow: 0px 0px 4px -2px rgba(0, 0, 0, 0.5);
+  margin-top: 17px;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  display: none;
+  background-color: #fff;
+  z-index: 10;
+}
+.dropdown-container .dropdown-menu ul {
+  list-style: none;
+  padding: 5px;
+  margin: 0;
+  overflow: hidden;
+  z-index: 10;
+}
+.dropdown-container .dropdown-menu ul li:hover {
+  background-color: #f04935;
+  color: #fff !important;
+}
+.dropdown-container
+  > .dropdown-menu
+  > ul
+  > li:hover
+  + .dropdown-container
+  > .dropdown-menu
+  > ul
+  > li
+  > a {
+  color: #fff !important;
+}
+.dropdown-container .dropdown-menu ul li {
+  text-decoration: none;
+  display: block;
+  color: #000;
+  padding: 16px 10px;
+  box-shadow: 0px 0px 4px -2px rgba(0, 0, 0, 0.5);
+  transition: all ease-in-out 0.3s;
+  font-family: "Open Sans", sans-serif;
+}
+
+.dropdown-menu,
+.dropdown-toggle {
+  position: relative;
+}
+.dropdown-menu::before,
+.dropdown-toggle::before {
+  content: "";
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  border: 5px solid;
+  border-top-color: rgba(0, 0, 0, 0);
+  border-left-color: rgba(0, 0, 0, 0);
+  margin-top: -2.5px;
+  background-color: rgba(0, 0, 0, 0);
+  transition: all ease-in-out 0.2s;
+}
+
+.dropdown-menu {
+  z-index: 10;
+  position: relative;
+}
+.dropdown-menu::before {
+  z-index: -1;
+  transform: rotate(-135deg);
+  top: -3px;
+  right: 56px;
+  border-color: #fff;
+  box-shadow: 1px 1px 4px -2px rgba(0, 0, 0, 0.4);
+}
+
+.dropdown-open .dropdown-menu.dropdown-active {
+  display: block;
+}
+
+.dropdown-container.dropdown-open .dropdown-toggle:before {
+  transform: rotate(-135deg);
+}
+
+.dropdown-bordered .dropdown-toggle {
+  border: 2px solid #000000;
+  border-radius: 10px;
+}
+.dropdown-bordered .dropdown-menu {
+  border: 2px solid #000000;
+  border-radius: 10px;
+}
+.dropdown-bordered .dropdown-menu::before {
+  border-color: #000000;
+}
+.dropdown-bordered .dropdown-menu a {
+  box-shadow: none;
+  border-bottom: 2px solid #000000;
+}
+.dropdown-bordered .dropdown-menu li:last-child a {
+  border-bottom: 0;
+}
+
+/* Step Progress */
+.step_progress {
+  position: relative;
+  padding-left: 45px;
+  list-style: none;
+}
+
+.step_progress::before {
+  display: inline-block;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 13px;
+  width: 10px;
+  height: 80%;
+  border-left: 2px dotted #ccc;
+}
+
+.step_progress-item {
+  position: relative;
+  counter-increment: list;
+}
+
+.step_progress-item:not(:last-child) {
+  padding-bottom: 20px;
+}
+
+.step_progress-item::before {
+  display: inline-block;
+  content: "";
+  position: absolute;
+  left: -30px;
+  height: 100%;
+  width: 10px;
+}
+
+.step_progress-item::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: -37px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #ff6347;
+}
+
+.step_progress-item.current::after {
+  border: 2px solid #000;
+  background-color: #fff;
+}
+
+.step_progress-item.next::after {
+  background-color: #ff6347;
+}
+
+.step_progress strong {
+  display: block;
+}

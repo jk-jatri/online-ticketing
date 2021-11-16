@@ -1,0 +1,2176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Jatri-Online Ticketing</title>
+    <link
+      rel="shortcut icon"
+      type="image/jpg"
+      href="../../src/images/logo/favicon.svg"
+    />
+
+    <!-- Css Link -->
+    <link rel="stylesheet" href="../../src/css/default/tailwind.css" />
+    <link rel="stylesheet" href="../../src/css/manual-style.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome link -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/48359289d4.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body
+    class="bg-gray-100"
+    x-data="{ 'isLoginModalOpen': false, 'isSignUpModalOpen': false }"
+    @keydown.escape="{'isLoginModalOpen' = false, 'isSignUpModalOpen' = false}"
+  >
+    <!----- Header Start ----->
+    <div
+      class="
+        corporate_bg_color
+        text-white
+        z-10
+        shadow
+        sticky
+        top-0
+        left-0
+        right-0
+      "
+    >
+      <nav
+        class="
+          py-2
+          md:py-4
+          px-5
+          sm:px-10
+          2xl:container 2xl:mx-auto
+          flex
+          items-center
+          justify-between
+          flex-wrap
+        "
+      >
+        <div class="flex items-center flex-shrink-0 mr-6">
+          <a
+            href="../../index.html"
+            class="font-semibold text-xl tracking-tight"
+          >
+            <img
+              src="../../src/images/logo/logoWhite.svg"
+              alt=""
+              class="w-28"
+            />
+          </a>
+        </div>
+
+        <label
+          class="
+            block
+            lg:hidden
+            cursor-pointer
+            flex
+            items-center
+            px-3
+            py-2
+            border
+            rounded
+            border-teal-400
+            hover:corporate_color hover:border-gray-400
+          "
+          for="menu-toggle"
+          ><svg
+            class="fill-current h-3 w-3"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title>Menu</title>
+            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" /></svg
+        ></label>
+        <input class="hidden" type="checkbox" id="menu-toggle" />
+
+        <div
+          class="
+            hidden
+            w-full
+            block
+            flex-grow
+            lg:flex lg:items-center lg:w-auto
+          "
+          id="menu"
+        >
+          <div class="text-sm lg:flex-grow">
+            <a
+              href="#"
+              class="block mt-4 lg:inline-block lg:mt-0 mr-4 body_text"
+              >Why Us</a
+            >
+            <a
+              href="#"
+              class="block mt-4 lg:inline-block lg:mt-0 mr-4 body_text"
+              >About Us</a
+            >
+            <a
+              href="#"
+              class="block mt-4 lg:inline-block lg:mt-0 mr-4 body_text"
+              >Career</a
+            >
+            <a
+              href="#"
+              class="block mt-4 lg:inline-block lg:mt-0 mr-4 body_text"
+              >Blog</a
+            >
+            <a
+              href="#"
+              class="block mt-4 lg:inline-block lg:mt-0 mr-4 body_text"
+              >Contact Us</a
+            >
+          </div>
+          <div class="block">
+            <div class="flex-grow lg:flex justify-between items-center gap-4">
+              <div class="dropdown-container">
+                <div class="dropdown-toggle click-dropdown">
+                  <i class="fas fa-cog"></i> Options
+                </div>
+                <div class="dropdown-menu">
+                  <ul>
+                    <li>
+                      <a href="../make-payment/index.html"> Make Payment </a>
+                    </li>
+                    <li>
+                      <a href="../print-tricket/index.html"> Print Ticket </a>
+                    </li>
+                    <li>
+                      <a href="../sms-ticket/index.html"> SMS Ticket </a>
+                    </li>
+                    <li>
+                      <a href="../cancel-ticket/index.html"> Cancel Ticket </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <a
+                href="#"
+                class="block mt-4 lg:inline-block lg:mt-0 mr-4 body_text"
+                @click="isLoginModalOpen = true"
+                >Log In</a
+              >
+              <a
+                href="#"
+                class="block mt-4 lg:inline-block lg:mt-0 mr-4 body_text"
+                @click="isSignUpModalOpen = true"
+                >Sign Up</a
+              >
+
+              <div x-data="{ profileMenuOpen: false }" class="">
+                <div
+                  @click="profileMenuOpen = !profileMenuOpen"
+                  class="relative border-0 border-transparent"
+                  :class="{'transform transition duration-300 ': profileMenuOpen}"
+                  x-transition:enter-end="transform opacity-100 scale-100"
+                  x-transition:leave="transition ease-in duration-75"
+                  x-transition:leave-start="transform opacity-100 scale-100"
+                >
+                  <div class="cursor-pointer">
+                    <div
+                      class="
+                        w-12
+                        h-12
+                        rounded-full
+                        overflow-hidden
+                        border-2
+                        dark:border-white
+                        border-gray-900
+                      "
+                    >
+                      <img
+                        src="../../src/images/others/profile.png"
+                        alt=""
+                        class="w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    x-show="profileMenuOpen"
+                    x-transition:enter="transition ease-out duration-100"
+                    x-transition:enter-start="transform opacity-0 scale-95"
+                    x-transition:enter-end="transform opacity-100 scale-100"
+                    x-transition:leave="transition ease-in duration-75"
+                    x-transition:leave-start="transform opacity-100 scale-100"
+                    x-transition:leave-end="transform opacity-0 scale-95"
+                    class="profile_dropdown_menu"
+                  >
+                    <ul class="space-y-3 dark:text-white">
+                      <li class="font-medium">
+                        <a href="#" class="dropdown_single_menu">
+                          <i class="far fa-user"></i> My Profile
+                        </a>
+                      </li>
+                      <li class="font-medium">
+                        <a href="#" class="dropdown_single_menu">
+                          <i class="fas fa-ticket-alt"></i> My Bookings
+                        </a>
+                      </li>
+                      <li class="font-medium">
+                        <a href="#" class="dropdown_single_menu">
+                          <i class="fas fa-history"></i> Transection History
+                        </a>
+                      </li>
+                      <li class="font-medium">
+                        <a href="#" class="dropdown_single_menu">
+                          <i class="far fa-comment-dots"></i> Complaints
+                        </a>
+                      </li>
+                      <hr class="dark:border-gray-700" />
+                      <li class="font-medium">
+                        <a href="#" class="dropdown_single_menu">
+                          <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <!----- Header End ----->
+
+    <!----- Body Start ----->
+
+    <section class="w-screen container mx-auto relative py-20">
+      <div class="w-10/12 xl:w-9/12 m-auto block">
+        <div
+          class="flex flex-row items-stretch justify-between w-full gap-5"
+          x-data="{tab: 1}"
+        >
+          <div
+            class="
+              flex flex-col
+              justify-start
+              w-1/4
+              bg-white
+              py-12
+              px-4
+              rounded-lg
+              shadow-sm
+            "
+          >
+            <div
+              class="
+                profile_head
+                flex flex-col
+                justify-center
+                items-center
+                gap-3
+                py-6
+              "
+            >
+              <img
+                src="../../src/images/others/profile.png"
+                alt=""
+                class="rounded-full w-20"
+              />
+              <h3 class="body_text">Anonymous</h3>
+              <h3 class="body_text">
+                Account Balance: <span>5000</span>&#2547;
+              </h3>
+            </div>
+
+            <hr />
+
+            <div class="tab_menu flex flex-col justify-start mt-3">
+              <a
+                class="px-4 py-2 text-sm mr-0 w-full flex justify-start gap-2"
+                :class="{'corporate_color corporate_solid_left_border': tab === 1}"
+                href="#"
+                @click.prevent="tab = 1"
+              >
+                <i class="far fa-user"></i> My Profile
+              </a>
+              <a
+                class="px-4 py-2 text-sm mr-0 w-full flex justify-start gap-2"
+                :class="{'corporate_color corporate_solid_left_border': tab === 2}"
+                href="#"
+                @click.prevent="tab = 2"
+              >
+                <i class="fas fa-ticket-alt"></i> My Bookings
+              </a>
+              <a
+                class="px-4 py-2 text-sm mr-0 w-full flex justify-start gap-2"
+                :class="{'corporate_color corporate_solid_left_border': tab === 3}"
+                href="#"
+                @click.prevent="tab = 3"
+              >
+                <i class="fas fa-history"></i> Transection History
+              </a>
+              <a
+                class="px-4 py-2 text-sm mr-0 w-full flex justify-start gap-2"
+                :class="{'corporate_color corporate_solid_left_border': tab === 4}"
+                href="#"
+                @click.prevent="tab = 4"
+              >
+                <i class="far fa-comment-dots"></i> Complaints
+              </a>
+            </div>
+          </div>
+
+          <div class="w-3/4 bg-white rounded-lg shadow-sm">
+            <div class="space-y-6" x-show="tab === 1">
+              <form
+                action=""
+                class="flex flex-col justify-start gap-6 py-12 px-6"
+              >
+                <div
+                  class="flex justify-between w-full gap-6"
+                  x-show="tab === 1"
+                  x-transition:enter="transition delay-100 duration-500 transform ease-in"
+                  x-transition:enter-start="opacity-0"
+                >
+                  <div class="f_name w-1/2">
+                    <label for="" class="font-semibold body_text text-sm"
+                      >First Name</label
+                    >
+                    <input
+                      type="text"
+                      placeholder="Your first name"
+                      class="
+                        text-gray-800
+                        placeholder-gray-400
+                        w-full
+                        py-1
+                        border-0 border-b
+                        focus:outline-none
+                      "
+                    />
+                  </div>
+                  <div class="l_name w-1/2">
+                    <label for="" class="font-semibold body_text text-sm"
+                      >First Name</label
+                    >
+                    <input
+                      type="text"
+                      placeholder="Your last name"
+                      class="
+                        text-gray-800
+                        placeholder-gray-400
+                        w-full
+                        py-1
+                        border-0 border-b
+                        focus:outline-none
+                      "
+                    />
+                  </div>
+                </div>
+
+                <div
+                  class="w-full"
+                  x-show="tab === 1"
+                  x-transition:enter="transition delay-100 duration-500 transform ease-in"
+                  x-transition:enter-start="opacity-0"
+                >
+                  <label for="" class="font-semibold body_text text-sm"
+                    >Gender</label
+                  >
+                  <select
+                    name=""
+                    id=""
+                    class="
+                      text-gray-800
+                      placeholder-gray-400
+                      w-full
+                      py-1
+                      border-0 border-b
+                      focus:outline-none
+                    "
+                  >
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+
+                <div
+                  class="w-full"
+                  x-show="tab === 1"
+                  x-transition:enter="transition delay-100 duration-500 transform ease-in"
+                  x-transition:enter-start="opacity-0"
+                >
+                  <label for="" class="font-semibold body_text text-sm"
+                    >Phone</label
+                  >
+                  <input
+                    type="text"
+                    placeholder="Phone number"
+                    class="
+                      text-gray-800
+                      placeholder-gray-400
+                      w-full
+                      py-1
+                      border-0 border-b
+                      focus:outline-none
+                    "
+                  />
+                </div>
+
+                <div
+                  class="w-full"
+                  x-show="tab === 1"
+                  x-transition:enter="transition delay-100 duration-500 transform ease-in"
+                  x-transition:enter-start="opacity-0"
+                >
+                  <label for="" class="font-semibold body_text text-sm"
+                    >Email</label
+                  >
+                  <input
+                    type="email"
+                    placeholder="Email address"
+                    class="
+                      text-gray-800
+                      placeholder-gray-400
+                      w-full
+                      py-1
+                      border-0 border-b
+                      focus:outline-none
+                    "
+                  />
+                </div>
+
+                <div
+                  class="flex justify-between w-full gap-6"
+                  x-show="tab === 1"
+                  x-transition:enter="transition delay-200 duration-500 transform ease-in"
+                  x-transition:enter-start="opacity-0"
+                >
+                  <div class="city w-1/2">
+                    <label for="" class="font-semibold body_text text-sm"
+                      >City</label
+                    >
+                    <input
+                      type="text"
+                      placeholder="City"
+                      class="
+                        text-gray-800
+                        placeholder-gray-400
+                        w-full
+                        py-1
+                        border-0 border-b
+                        focus:outline-none
+                      "
+                    />
+                  </div>
+                  <div class="h_num w-1/2">
+                    <label for="" class="font-semibold body_text text-sm"
+                      >House Number</label
+                    >
+                    <input
+                      type="text"
+                      placeholder="House number"
+                      class="
+                        text-gray-800
+                        placeholder-gray-400
+                        w-full
+                        py-1
+                        border-0 border-b
+                        focus:outline-none
+                      "
+                    />
+                  </div>
+                </div>
+
+                <div
+                  class="w-full"
+                  x-show="tab === 1"
+                  x-transition:enter="transition delay-200 duration-500 transform ease-in"
+                  x-transition:enter-start="opacity-0"
+                >
+                  <label for="" class="font-semibold body_text text-sm"
+                    >Street Address</label
+                  >
+                  <input
+                    type="email"
+                    placeholder="Street address"
+                    class="
+                      text-gray-800
+                      placeholder-gray-400
+                      w-full
+                      py-1
+                      border-0 border-b
+                      focus:outline-none
+                    "
+                  />
+                </div>
+
+                <div
+                  class="flex justify-between w-full gap-6"
+                  x-show="tab === 1"
+                  x-transition:enter="transition delay-200 duration-500 transform ease-in"
+                  x-transition:enter-start="opacity-0"
+                >
+                  <div class="zip_code w-1/2">
+                    <label for="" class="font-semibold body_text text-sm"
+                      >Zip Code</label
+                    >
+                    <input
+                      type="text"
+                      placeholder="Zipcode"
+                      class="
+                        text-gray-800
+                        placeholder-gray-400
+                        w-full
+                        py-1
+                        border-0 border-b
+                        focus:outline-none
+                      "
+                    />
+                  </div>
+                </div>
+
+                <div
+                  class="w-full flex justify-center items-center"
+                  x-show="tab === 1"
+                  x-transition:enter="transition delay-300 duration-500 transform ease-in"
+                  x-transition:enter-start="opacity-0"
+                >
+                  <button
+                    type="submit"
+                    class="w-1/4 p-3 corporate_bg_color text-white rounded-md"
+                  >
+                    Update Profile
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <div class="space-y-6 py-12 px-2" x-show="tab === 2">
+              <div
+                class="
+                  flex
+                  justify-between
+                  booking_head
+                  body_text
+                  text-sm
+                  gap-5
+                  corporate_solid_bottom_border
+                  pb-5
+                "
+              >
+                <div class="w-3/5 flex justify-between gap-2">
+                  <select class="border bg-gray-100 rounded">
+                    <option value="All Tickets" selected>All Tickets</option>
+                    <option value="Booked Tickets">Booked Tickets</option>
+                    <option value="Purchased Tickets">Purchased Tickets</option>
+                    <option value="Canceled Tickets">Canceled Tickets</option>
+                    <option value="Expired Tickets">Expired Tickets</option>
+                    <option value="ReIssued Tickets">ReIssued Tickets</option>
+                  </select>
+
+                  <div class="flex items-center justify-between gap-1">
+                    <div class="corporate_bg_color h-4 w-4 rounded-full"></div>
+                    <span class="body_text">Booked</span>
+                  </div>
+                  <div class="flex items-center justify-between gap-1">
+                    <div class="bg-green-700 h-4 w-4 rounded-full"></div>
+                    <span class="body_text">Paid</span>
+                  </div>
+                  <div class="flex items-center justify-between gap-1">
+                    <div class="bg-red-700 h-4 w-4 rounded-full"></div>
+                    <span class="body_text">Canceled</span>
+                  </div>
+                  <div class="flex items-center justify-between gap-1">
+                    <div class="corporate_bg_dark h-4 w-4 rounded-full"></div>
+                    <span class="body_text">Expired</span>
+                  </div>
+                </div>
+                <div class="w-2/5 px-2">
+                  <div
+                    class="border rounded overflow-hidden flex justify-between"
+                  >
+                    <input
+                      type="text"
+                      class="px-4 py-2 w-9/12"
+                      placeholder="Search..."
+                    />
+                    <button
+                      class="
+                        flex
+                        items-center
+                        justify-center
+                        px-4
+                        border-l
+                        corporate_bg_color
+                        text-white
+                        w-3/12
+                      "
+                    >
+                      <svg
+                        class="h-4 w-4 text-grey-dark"
+                        fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!-- Single Transection start -->
+              <div
+                class="py-4 px-6 shadow rounded-lg my-5"
+                x-show="tab === 2"
+                x-transition:enter="transition delay-100 duration-500 transform ease-in"
+                x-transition:enter-start="opacity-0"
+              >
+                <div
+                  class="
+                    transection_head
+                    border-b border-dashed
+                    flex
+                    justify-between
+                    items-start
+                    gap-5
+                    pb-5
+                    mb-10
+                  "
+                >
+                  <h5 class="body_text font-semibold text-sm">
+                    Dhaka to Dinajpur
+                  </h5>
+                  <h5 class="body_text text-sm">Non AC</h5>
+                  <h5 class="body_text text-sm">Shyamoli NR Travels</h5>
+                  <h5 class="body_text text-sm">
+                    Status <span class="corporate_color uppercase">Paid</span>
+                  </h5>
+                </div>
+                <div
+                  class="flex justify-between align-middle text-xs h-full gap-2"
+                >
+                  <div
+                    class="
+                      flex flex-col
+                      justify-center
+                      items-center
+                      align-middle
+                      gap-3
+                      w-2/12
+                      body_text
+                      corporate_dashed_right_border
+                    "
+                  >
+                    <p class="uppercase body_text">Booking id</p>
+                    <h5 class="corporate_color body_text font-medium">
+                      A-GKJC18
+                    </h5>
+                  </div>
+                  <div
+                    class="
+                      flex flex-col
+                      justify-center
+                      items-center
+                      align-middle
+                      gap-3
+                      w-2/12
+                      body_text
+                      corporate_dashed_right_border
+                    "
+                  >
+                    <p class="uppercase body_text">Booked by</p>
+                    <h5 class="corporate_color body_text font-medium">
+                      Mostafa Mamun
+                    </h5>
+                  </div>
+                  <div
+                    class="
+                      flex flex-col
+                      justify-center
+                      items-center
+                      align-middle
+                      gap-3
+                      w-2/12
+                      body_text
+                      corporate_dashed_right_border
+                    "
+                  >
+                    <p class="uppercase body_text">Total Fare</p>
+                    <h5 class="corporate_color body_text font-medium">
+                      <span>956.00</span>&#2547;
+                    </h5>
+                  </div>
+                  <div
+                    class="
+                      flex flex-col
+                      justify-center
+                      items-center
+                      align-middle
+                      gap-3
+                      w-2/12
+                      body_text
+                      corporate_dashed_right_border
+                    "
+                  >
+                    <p class="uppercase body_text">Booking Date</p>
+                    <h5 class="corporate_color body_text font-medium">
+                      30-May-2021
+                    </h5>
+                    <h5 class="corporate_color body_text font-medium">
+                      Sunday
+                    </h5>
+                  </div>
+                  <div
+                    class="
+                      flex flex-col
+                      justify-center
+                      items-center
+                      align-middle
+                      gap-3
+                      w-2/12
+                      body_text
+                      corporate_dashed_right_border
+                    "
+                  >
+                    <p class="uppercase body_text">Journey Date</p>
+                    <h5 class="corporate_color body_text font-medium">
+                      02-Jun-2021
+                    </h5>
+                    <h5 class="corporate_color body_text font-medium">
+                      Wednessday
+                    </h5>
+                  </div>
+                  <div
+                    class="
+                      flex flex-col
+                      justify-center
+                      items-center
+                      align-middle
+                      gap-3
+                      w-2/12
+                      body_text
+                      p-3
+                    "
+                  >
+                    <button
+                      class="
+                        corporate_bg_color
+                        text-white
+                        px-5
+                        py-3
+                        w-full
+                        rounded
+                      "
+                    >
+                      Details
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!-- Single Transection end -->
+              <!-- Single Transection start -->
+              <div
+                class="py-4 px-6 shadow rounded-lg my-5"
+                x-show="tab === 2"
+                x-transition:enter="transition delay-100 duration-500 transform ease-in"
+                x-transition:enter-start="opacity-0"
+              >
+                <div
+                  class="
+                    transection_head
+                    border-b border-dashed
+                    flex
+                    justify-between
+                    items-start
+                    gap-5
+                    pb-5
+                    mb-10
+                  "
+                >
+                  <h5 class="body_text font-semibold text-sm">
+                    Dhaka to Dinajpur
+                  </h5>
+                  <h5 class="body_text text-sm">Non AC</h5>
+                  <h5 class="body_text text-sm">Shyamoli NR Travels</h5>
+                  <h5 class="body_text text-sm">
+                    Status <span class="corporate_color uppercase">Paid</span>
+                  </h5>
+                </div>
+                <div
+                  class="flex justify-between align-middle text-xs h-full gap-2"
+                >
+                  <div
+                    class="
+                      flex flex-col
+                      justify-center
+                      items-center
+                      align-middle
+                      gap-3
+                      w-2/12
+                      body_text
+                      corporate_dashed_right_border
+                    "
+                  >
+                    <p class="uppercase body_text">Booking id</p>
+                    <h5 class="corporate_color body_text font-medium">
+                      A-GKJC18
+                    </h5>
+                  </div>
+                  <div
+                    class="
+                      flex flex-col
+                      justify-center
+                      items-center
+                      align-middle
+                      gap-3
+                      w-2/12
+                      body_text
+                      corporate_dashed_right_border
+                    "
+                  >
+                    <p class="uppercase body_text">Booked by</p>
+                    <h5 class="corporate_color body_text font-medium">
+                      Mostafa Mamun
+                    </h5>
+                  </div>
+                  <div
+                    class="
+                      flex flex-col
+                      justify-center
+                      items-center
+                      align-middle
+                      gap-3
+                      w-2/12
+                      body_text
+                      corporate_dashed_right_border
+                    "
+                  >
+                    <p class="uppercase body_text">Total Fare</p>
+                    <h5 class="corporate_color body_text font-medium">
+                      <span>956.00</span>&#2547;
+                    </h5>
+                  </div>
+                  <div
+                    class="
+                      flex flex-col
+                      justify-center
+                      items-center
+                      align-middle
+                      gap-3
+                      w-2/12
+                      body_text
+                      corporate_dashed_right_border
+                    "
+                  >
+                    <p class="uppercase body_text">Booking Date</p>
+                    <h5 class="corporate_color body_text font-medium">
+                      30-May-2021
+                    </h5>
+                    <h5 class="corporate_color body_text font-medium">
+                      Sunday
+                    </h5>
+                  </div>
+                  <div
+                    class="
+                      flex flex-col
+                      justify-center
+                      items-center
+                      align-middle
+                      gap-3
+                      w-2/12
+                      body_text
+                      corporate_dashed_right_border
+                    "
+                  >
+                    <p class="uppercase body_text">Journey Date</p>
+                    <h5 class="corporate_color body_text font-medium">
+                      02-Jun-2021
+                    </h5>
+                    <h5 class="corporate_color body_text font-medium">
+                      Wednessday
+                    </h5>
+                  </div>
+                  <div
+                    class="
+                      flex flex-col
+                      justify-center
+                      items-center
+                      align-middle
+                      gap-3
+                      w-2/12
+                      body_text
+                      p-3
+                    "
+                  >
+                    <button
+                      class="
+                        corporate_bg_color
+                        text-white
+                        px-5
+                        py-3
+                        w-full
+                        rounded
+                      "
+                    >
+                      Details
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!-- Single Transection end -->
+              <hr />
+              <!-- Pagination start -->
+              <div class="flex justify-end items-center py-4 px-6">
+                <nav aria-label="Page navigation">
+                  <ul class="inline-flex">
+                    <li>
+                      <button
+                        class="
+                          h-10
+                          px-5
+                          corporate_color
+                          transition-colors
+                          duration-150
+                          rounded-l-lg
+                          focus:shadow-outline
+                          hover:corporate_bg_color
+                        "
+                      >
+                        <i class="fas fa-chevron-left"></i>
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        class="
+                          h-10
+                          px-5
+                          corporate_color
+                          transition-colors
+                          duration-150
+                          focus:shadow-outline
+                          hover:corporate_bg_color
+                        "
+                      >
+                        1
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        class="
+                          h-10
+                          px-5
+                          corporate_color
+                          transition-colors
+                          duration-150
+                          focus:shadow-outline
+                          hover:corporate_bg_color
+                        "
+                      >
+                        2
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        class="
+                          h-10
+                          px-5
+                          text-white
+                          transition-colors
+                          duration-150
+                          corporate_bg_color
+                          border border-r-0
+                          corporate_border_1
+                          focus:shadow-outline
+                        "
+                      >
+                        3
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        class="
+                          h-10
+                          px-5
+                          corporate_color
+                          transition-colors
+                          duration-150
+                          bg-white
+                          rounded-r-lg
+                          focus:shadow-outline
+                          hover:corporate_bg_color
+                        "
+                      >
+                        <i class="fas fa-chevron-right"></i>
+                      </button>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+              <!-- Pagination end -->
+            </div>
+
+            <div class="space-y-6" x-show="tab === 3">
+              <div class="tab_head py-4 px-6 border-b">
+                <p class="corporate_color body_text">Transections</p>
+              </div>
+
+              <!-- Single Transection start -->
+              <div
+                class="border-b py-4 px-6"
+                x-show="tab === 3"
+                x-transition:enter="transition duration-500 transform ease-in"
+                x-transition:enter-start="opacity-0"
+              >
+                <div class="flex justify-between">
+                  <div
+                    class="
+                      flex flex-col
+                      justify-start
+                      gap-3
+                      w-8/12
+                      body_text
+                      corporate_dashed_right_border
+                    "
+                  >
+                    <h3 class="font-semibold uppercase">
+                      <span class="corporate_color_dark"
+                        >Transection History:</span
+                      >
+                      <span class="corporate_color">31 May 2021</span>
+                    </h3>
+                    <p class="text-sm uppercase">
+                      Transaction No :
+                      <span class="corporate_color_dark">00002</span>
+                    </p>
+                    <h5 class="">
+                      <span class="corporate_color_dark"
+                        >Purchased BUS ticket. Ticket Number:</span
+                      >
+                      <span class="corporate_color">A-GKJC18</span>
+                    </h5>
+                  </div>
+                  <div
+                    class="
+                      flex flex-col
+                      justify-center
+                      items-center
+                      align-middle
+                      gap-3
+                      w-2/12
+                      body_text
+                      corporate_dashed_right_border
+                    "
+                  >
+                    <p class="text-sm uppercase">Amount</p>
+                    <h5 class="corporate_color"><span>-956.00</span>&#2547;</h5>
+                  </div>
+                  <div
+                    class="
+                      flex flex-col
+                      justify-center
+                      items-center
+                      align-middle
+                      gap-3
+                      w-2/12
+                      body_text
+                    "
+                  >
+                    <p class="text-sm uppercase">Balance</p>
+                    <h5 class="corporate_color"><span>0.00</span>&#2547;</h5>
+                  </div>
+                </div>
+              </div>
+              <!-- Single Transection end -->
+              <!-- Single Transection start -->
+              <div
+                class="border-b py-4 px-6"
+                x-show="tab === 3"
+                x-transition:enter="transition delay-100 duration-500 transform ease-in"
+                x-transition:enter-start="opacity-0"
+              >
+                <div class="flex justify-between">
+                  <div
+                    class="
+                      flex flex-col
+                      justify-start
+                      gap-3
+                      w-8/12
+                      body_text
+                      corporate_dashed_right_border
+                    "
+                  >
+                    <h3 class="font-semibold uppercase">
+                      <span class="corporate_color_dark"
+                        >Transection History:</span
+                      >
+                      <span class="corporate_color">31 May 2021</span>
+                    </h3>
+                    <p class="text-sm uppercase">
+                      Transaction No :
+                      <span class="corporate_color_dark">00002</span>
+                    </p>
+                    <h5 class="">
+                      <span class="corporate_color_dark"
+                        >Purchased BUS ticket. Ticket Number:</span
+                      >
+                      <span class="corporate_color">A-GKJC18</span>
+                    </h5>
+                  </div>
+                  <div
+                    class="
+                      flex flex-col
+                      justify-center
+                      items-center
+                      align-middle
+                      gap-3
+                      w-2/12
+                      body_text
+                      corporate_dashed_right_border
+                    "
+                  >
+                    <p class="text-sm uppercase">Amount</p>
+                    <h5 class="corporate_color"><span>-956.00</span>&#2547;</h5>
+                  </div>
+                  <div
+                    class="
+                      flex flex-col
+                      justify-center
+                      items-center
+                      align-middle
+                      gap-3
+                      w-2/12
+                      body_text
+                    "
+                  >
+                    <p class="text-sm uppercase">Balance</p>
+                    <h5 class="corporate_color"><span>0.00</span>&#2547;</h5>
+                  </div>
+                </div>
+              </div>
+              <!-- Single Transection end -->
+
+              <!-- Pagination start -->
+              <div class="flex justify-end items-center py-4 px-6">
+                <nav aria-label="Page navigation">
+                  <ul class="inline-flex">
+                    <li>
+                      <button
+                        class="
+                          h-10
+                          px-5
+                          corporate_color
+                          transition-colors
+                          duration-150
+                          rounded-l-lg
+                          focus:shadow-outline
+                          hover:corporate_bg_color
+                        "
+                      >
+                        <i class="fas fa-chevron-left"></i>
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        class="
+                          h-10
+                          px-5
+                          corporate_color
+                          transition-colors
+                          duration-150
+                          focus:shadow-outline
+                          hover:corporate_bg_color
+                        "
+                      >
+                        1
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        class="
+                          h-10
+                          px-5
+                          corporate_color
+                          transition-colors
+                          duration-150
+                          focus:shadow-outline
+                          hover:corporate_bg_color
+                        "
+                      >
+                        2
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        class="
+                          h-10
+                          px-5
+                          text-white
+                          transition-colors
+                          duration-150
+                          corporate_bg_color
+                          border border-r-0
+                          corporate_border_1
+                          focus:shadow-outline
+                        "
+                      >
+                        3
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        class="
+                          h-10
+                          px-5
+                          corporate_color
+                          transition-colors
+                          duration-150
+                          bg-white
+                          rounded-r-lg
+                          focus:shadow-outline
+                          hover:corporate_bg_color
+                        "
+                      >
+                        <i class="fas fa-chevron-right"></i>
+                      </button>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+              <!-- Pagination end -->
+            </div>
+
+            <div class="space-y-6 py-12 px-6" x-show="tab === 4">
+              <div
+                class="
+                  flex
+                  justify-end
+                  booking_head
+                  body_text
+                  text-sm
+                  gap-5
+                  corporate_solid_bottom_border
+                  pb-5
+                "
+              >
+                <button
+                  class="
+                    corporate_bg_color
+                    hover:bg-transparent
+                    corporate_border_2
+                    text-white
+                    hover:text-black
+                    rounded-md
+                    body_text
+                    py-3
+                    px-5
+                    transition
+                    duration-500
+                    ease-in-out
+                  "
+                >
+                  Submit a Complaint
+                </button>
+              </div>
+              <!-- Single complaints start -->
+              <div
+                class="py-4 px-6 shadow rounded-lg my-5"
+                x-show="tab === 4"
+                x-transition:enter="transition delay-100 duration-500 transform ease-in"
+                x-transition:enter-start="opacity-0"
+              >
+                <div
+                  class="
+                    transection_head
+                    border-b border-dashed
+                    flex
+                    justify-between
+                    items-start
+                    gap-5
+                    pb-5
+                    mb-5
+                  "
+                >
+                  <h5 class="body_text text-sm">
+                    Application :
+                    <span class="uppercase font-semibold">bus</span>
+                  </h5>
+                  <h5 class="body_text text-sm">
+                    Category :
+                    <span class="uppercase font-semibold">Support</span>
+                  </h5>
+                  <h5 class="body_text text-sm">
+                    September 4th 2021, 10:59:17 am
+                  </h5>
+                  <h5 class="body_text text-sm">
+                    Status :
+                    <span class="bg-green-700 text-white px-1 uppercase"
+                      >resolved</span
+                    >
+                  </h5>
+                </div>
+                <div
+                  class="
+                    flex
+                    justify-between
+                    items-center
+                    align-middle
+                    text-xs
+                    h-full
+                    gap-2
+                  "
+                >
+                  <div class="message">
+                    <p class="text-gray-600 body_text text-sm">
+                      Bus not Available
+                    </p>
+                  </div>
+
+                  <div
+                    class="
+                      flex flex-col
+                      justify-center
+                      items-center
+                      align-middle
+                      body_text
+                      p-3
+                    "
+                  >
+                    <button
+                      class="
+                        corporate_bg_color
+                        text-white
+                        px-5
+                        py-3
+                        w-full
+                        rounded
+                      "
+                    >
+                      Details
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!-- Single complaints end -->
+              <!-- Single complaints start -->
+              <div
+                class="py-4 px-6 shadow rounded-lg my-5"
+                x-show="tab === 4"
+                x-transition:enter="transition delay-100 duration-500 transform ease-in"
+                x-transition:enter-start="opacity-0"
+              >
+                <div
+                  class="
+                    transection_head
+                    border-b border-dashed
+                    flex
+                    justify-between
+                    items-start
+                    gap-5
+                    pb-5
+                    mb-5
+                  "
+                >
+                  <h5 class="body_text text-sm">
+                    Application :
+                    <span class="uppercase font-semibold">General</span>
+                  </h5>
+                  <h5 class="body_text text-sm">
+                    Category :
+                    <span class="uppercase font-semibold">REFUND</span>
+                  </h5>
+                  <h5 class="body_text text-sm">
+                    September 4th 2021, 10:59:17 am
+                  </h5>
+                  <h5 class="body_text text-sm">
+                    Status :
+                    <span class="bg-yellow-300 text-white px-1 uppercase"
+                      >pending</span
+                    >
+                  </h5>
+                </div>
+                <div
+                  class="
+                    flex
+                    justify-between
+                    items-center
+                    align-middle
+                    text-xs
+                    h-full
+                    gap-2
+                  "
+                >
+                  <div class="message">
+                    <p class="text-gray-600 body_text text-sm">Refund Me</p>
+                  </div>
+
+                  <div
+                    class="
+                      flex flex-col
+                      justify-center
+                      items-center
+                      align-middle
+                      body_text
+                      p-3
+                    "
+                  >
+                    <button
+                      class="
+                        corporate_bg_color
+                        text-white
+                        px-5
+                        py-3
+                        w-full
+                        rounded
+                      "
+                    >
+                      Details
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!-- Single complaints end -->
+              <!-- Single complaints start -->
+              <div
+                class="py-4 px-6 shadow rounded-lg my-5"
+                x-show="tab === 4"
+                x-transition:enter="transition delay-100 duration-500 transform ease-in"
+                x-transition:enter-start="opacity-0"
+              >
+                <div
+                  class="
+                    transection_head
+                    border-b border-dashed
+                    flex
+                    justify-between
+                    items-start
+                    gap-5
+                    pb-5
+                    mb-5
+                  "
+                >
+                  <h5 class="body_text text-sm">
+                    Application :
+                    <span class="uppercase font-semibold">bus</span>
+                  </h5>
+                  <h5 class="body_text text-sm">
+                    Category :
+                    <span class="uppercase font-semibold">BILLING</span>
+                  </h5>
+                  <h5 class="body_text text-sm">
+                    September 4th 2021, 10:59:17 am
+                  </h5>
+                  <h5 class="body_text text-sm">
+                    Status :
+                    <span class="bg-green-700 text-white px-1 uppercase"
+                      >resolved</span
+                    >
+                  </h5>
+                </div>
+                <div
+                  class="
+                    flex
+                    justify-between
+                    items-center
+                    align-middle
+                    text-xs
+                    h-full
+                    gap-2
+                  "
+                >
+                  <div class="message">
+                    <p class="text-gray-600 body_text text-sm">
+                      Can't use promo code
+                    </p>
+                  </div>
+
+                  <div
+                    class="
+                      flex flex-col
+                      justify-center
+                      items-center
+                      align-middle
+                      body_text
+                      p-3
+                    "
+                  >
+                    <button
+                      class="
+                        corporate_bg_color
+                        text-white
+                        px-5
+                        py-3
+                        w-full
+                        rounded
+                      "
+                    >
+                      Details
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!-- Single complaints end -->
+              <!-- Single complaints start -->
+              <div
+                class="py-4 px-6 shadow rounded-lg my-5"
+                x-show="tab === 4"
+                x-transition:enter="transition delay-100 duration-500 transform ease-in"
+                x-transition:enter-start="opacity-0"
+              >
+                <div
+                  class="
+                    transection_head
+                    border-b border-dashed
+                    flex
+                    justify-between
+                    items-start
+                    gap-5
+                    pb-5
+                    mb-5
+                  "
+                >
+                  <h5 class="body_text text-sm">
+                    Application :
+                    <span class="uppercase font-semibold">bus</span>
+                  </h5>
+                  <h5 class="body_text text-sm">
+                    Category :
+                    <span class="uppercase font-semibold"> BUG_REPORT</span>
+                  </h5>
+                  <h5 class="body_text text-sm">
+                    September 4th 2021, 10:59:17 am
+                  </h5>
+                  <h5 class="body_text text-sm">
+                    Status :
+                    <span class="bg-green-700 text-white px-1 uppercase"
+                      >resolved</span
+                    >
+                  </h5>
+                </div>
+                <div
+                  class="
+                    flex
+                    justify-between
+                    items-center
+                    align-middle
+                    text-xs
+                    h-full
+                    gap-2
+                  "
+                >
+                  <div class="message">
+                    <p class="text-gray-600 body_text text-sm">
+                      প্রমো কোড ব্যাবহার করেই তো অফার পেলাম না।
+                    </p>
+                  </div>
+
+                  <div
+                    class="
+                      flex flex-col
+                      justify-center
+                      items-center
+                      align-middle
+                      body_text
+                      p-3
+                    "
+                  >
+                    <button
+                      class="
+                        corporate_bg_color
+                        text-white
+                        px-5
+                        py-3
+                        w-full
+                        rounded
+                      "
+                    >
+                      Details
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!-- Single complaints end -->
+              <hr />
+              <!-- Pagination start -->
+              <div class="flex justify-end items-center py-4 px-6">
+                <nav aria-label="Page navigation">
+                  <ul class="inline-flex">
+                    <li>
+                      <button
+                        class="
+                          h-10
+                          px-5
+                          corporate_color
+                          transition-colors
+                          duration-150
+                          rounded-l-lg
+                          focus:shadow-outline
+                          hover:corporate_bg_color
+                        "
+                      >
+                        <i class="fas fa-chevron-left"></i>
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        class="
+                          h-10
+                          px-5
+                          corporate_color
+                          transition-colors
+                          duration-150
+                          focus:shadow-outline
+                          hover:corporate_bg_color
+                        "
+                      >
+                        1
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        class="
+                          h-10
+                          px-5
+                          corporate_color
+                          transition-colors
+                          duration-150
+                          focus:shadow-outline
+                          hover:corporate_bg_color
+                        "
+                      >
+                        2
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        class="
+                          h-10
+                          px-5
+                          text-white
+                          transition-colors
+                          duration-150
+                          corporate_bg_color
+                          border border-r-0
+                          corporate_border_1
+                          focus:shadow-outline
+                        "
+                      >
+                        3
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        class="
+                          h-10
+                          px-5
+                          corporate_color
+                          transition-colors
+                          duration-150
+                          bg-white
+                          rounded-r-lg
+                          focus:shadow-outline
+                          hover:corporate_bg_color
+                        "
+                      >
+                        <i class="fas fa-chevron-right"></i>
+                      </button>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+              <!-- Pagination end -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!----- Body End ----->
+
+    <!----- Footer Start ----->
+    <footer class="footer-1 corporate_bg_color py-8 sm:py-12">
+      <div class="px-5 sm:px-10 2xl:container 2xl:mx-auto">
+        <div class="sm:flex sm:flex-wrap 2xl:-mx-4 md:py-4">
+          <!-- footer part:1/3 -->
+          <div class="w-full md:w-1/3 xl:w-1/3">
+            <p class="text-md uppercase mb-2 text-white body_text font-light">
+              <span class="font-bold text-white">JATRI:</span> Empowering
+              Bangladesh to travel better
+            </p>
+
+            <!-- Footer Menu -->
+            <div class="flex mb-6">
+              <div class="w-1/2">
+                <ul class="list-none footer-links">
+                  <li class="mb-2">
+                    <a href="#" class="footer_bnt body_text">about us</a>
+                  </li>
+                  <li class="mb-2">
+                    <a href="#" class="footer_bnt body_text">newsletter</a>
+                  </li>
+                  <li class="mb-2">
+                    <a href="#" class="footer_bnt body_text">blog</a>
+                  </li>
+                  <li class="mb-2">
+                    <a href="#" class="footer_bnt body_text">career</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="w-1/2">
+                <ul class="list-none footer-links">
+                  <li class="mb-2">
+                    <a href="#" class="footer_bnt body_text">products</a>
+                  </li>
+                  <li class="mb-2">
+                    <a href="#" class="footer_bnt body_text">tickets</a>
+                  </li>
+                  <li class="mb-2">
+                    <a href="#" class="footer_bnt body_text">service</a>
+                  </li>
+                  <li class="mb-2">
+                    <a href="#" class="footer_bnt body_text">rent</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Social contact -->
+            <div class="flex justify-start">
+              <a
+                href="https://m.facebook.com/profile.php?id=836022770089201&ref=content_filter"
+                class="
+                  footer_social_btn
+                  hover:text-blue-600 hover:corporate_bg_color
+                "
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a
+                href="https://twitter.com/jatriapp?lang=en"
+                class="
+                  footer_social_btn
+                  hover:text-blue-400 hover:corporate_bg_color
+                "
+              >
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a
+                href="https://youtube.com/channel/UCOCwyP-pg5lJodKLvKmcWeQ"
+                class="
+                  footer_social_btn
+                  hover:text-red-600 hover:corporate_bg_color
+                "
+              >
+                <i class="fab fa-youtube"></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/company/jatri-app"
+                class="
+                  footer_social_btn
+                  hover:text-red-600 hover:corporate_bg_color
+                "
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- footer part:2/3 -->
+          <div class="w-full md:w-1/3 xl:w-1/3"></div>
+
+          <!-- footer part:3/3 -->
+          <div class="w-full md:w-1/3 sm:mx-auto mt-5 xl:mt-0 xl:ml-auto">
+            <div
+              class="
+                sm:flex
+                md:flex-col md:items-start
+                justify-between
+                md:justify-start
+                gap-6
+              "
+            >
+              <!-- <div class="flex flex-col justify-center items-center md:items-start md:justify-start"> -->
+              <img
+                src="../../src/images/others/stand.png"
+                alt=""
+                class="w-64 my-4"
+              />
+
+              <div class="flex flex-col items-start justify-start">
+                <div class="mt-5">
+                  <h5 class="mb-2 text-white font-semibold body_text">
+                    Newsletter
+                  </h5>
+                  <p class="text-white body_text">
+                    Subscribe for get new update at current time
+                  </p>
+                </div>
+
+                <!-- Subscribe form -->
+                <div class="mt-2 lg:flex justify-between">
+                  <input
+                    class="
+                      shadow
+                      appearance-none
+                      border
+                      rounded
+                      w-full
+                      py-2
+                      px-3
+                      mr-2
+                      text-grey-darker
+                      leading-tight
+                      focus:outline-none focus:shadow-outline
+                    "
+                    id="username"
+                    type="text"
+                    placeholder="Your Email"
+                  />
+                  <button
+                    class="
+                      bg-white
+                      hover:bg-black
+                      text-black
+                      hover:text-white
+                      font-light
+                      mt-2
+                      lg:mt-0
+                      py-2
+                      px-4
+                      rounded
+                      focus:outline-none focus:shadow-outline
+                    "
+                    type="button"
+                  >
+                    Subscribe
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer copyright section -->
+        <div
+          class="
+            flex flex-wrap
+            justify-center
+            lg:justify-start
+            -mx-4
+            mt-3
+            sm:mt-0
+            md:py-4
+            items-center
+            body_text
+          "
+        >
+          <p class="footer_bottom_menu">
+            &copy; Copyright |
+            <span class="uppercase">jatri 2021 all right reserved</span>
+          </p>
+          <p class="footer_bottom_menu">
+            <a href="../../user/term-and-condition/">Terms & Conditions</a>
+          </p>
+          <p class="footer_bottom_menu">
+            <a href="../../user/privacy-policy/">Privacy Policy</a>
+          </p>
+          <div class="flex mt-4 lg:mt-0">
+            <a
+              href="https://play.google.com/store/apps/details?id=com.jatri.jatriuser"
+              ><img
+                src="../../images/logo/play-store.png"
+                alt=""
+                class="footer_app_link"
+            /></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!----- Footer End ----->
+
+    <!-- modal Design Start -->
+    <!-- Login Modal Start -->
+    <div
+      class="
+        fixed
+        text-white
+        flex
+        items-center
+        justify-center
+        overflow-auto
+        z-50
+        bg-black bg-opacity-40
+        left-0
+        right-0
+        top-0
+        bottom-0
+      "
+      x-transition:enter="transition ease duration-300"
+      x-transition:enter-start="opacity-0"
+      x-transition:enter-end="opacity-100"
+      x-transition:leave="transition ease duration-300"
+      x-transition:leave-start="opacity-100"
+      x-transition:leave-end="opacity-0"
+      style="background-color: rgba(0, 0, 0, 0.5)"
+      x-show="isLoginModalOpen"
+      :class="{ 'absolute inset-0 z-10 flex items-start justify-center': isLoginModalOpen }"
+    >
+      <!-- Login dialog start-->
+      <div
+        class="corporate_bg_color rounded-md shadow-2xl p-6 sm:w-3/12 mx-10"
+        x-show="isLoginModalOpen"
+        @click.away="isLoginModalOpen = false"
+      >
+        <div class="flex justify-end">
+          <button
+            @click="isLoginModalOpen = false"
+            class="bg-transparent text-white text-sm font-bold"
+          >
+            &#10005;
+          </button>
+        </div>
+        <!-- Title -->
+        <form action="">
+          <div class="modal-body">
+            <div class="flex flex-col gap-2 justify-center items-center">
+              <img
+                class="w-2/5"
+                src="../../src/images/logo/logoWhite.svg"
+                alt=""
+              />
+              <h3>Hello, Welcome to Jatri !</h3>
+            </div>
+
+            <!-- Input fields -->
+            <div class="flex flex-col items-start gap-3 my-8">
+              <div class="flex flex-col gap-1 w-full">
+                <label for="">Email</label>
+                <input
+                  type="text"
+                  placeholder="Your name"
+                  class="
+                    bg-white
+                    text-gray-800
+                    placeholder-gray-400
+                    w-full
+                    p-2
+                    rounded-md
+                    border-0
+                    focus:outline-none
+                  "
+                />
+              </div>
+
+              <div class="flex flex-col gap-1 w-full">
+                <label for="">Password</label>
+                <input
+                  type="password"
+                  placeholder="Enter your Password"
+                  autocomplete="new-password"
+                  class="
+                    bg-white
+                    text-gray-800
+                    placeholder-gray-400
+                    w-full
+                    p-2
+                    rounded-md
+                    border-0
+                    focus:outline-none
+                  "
+                />
+              </div>
+            </div>
+
+            <!-- Buttons -->
+            <div class="flex flex-col justify-center gap-2">
+              <a
+                href="#"
+                target="_blank"
+                class="
+                  p-5
+                  text-center text-sm
+                  corporate_bg_dark
+                  rounded-md
+                  transition-colors
+                  duration-150
+                  ease-linear
+                  border-0
+                  text-white
+                  focus:outline-none focus:ring-0
+                  font-bold
+                  hover:bg-gray-500
+                  focus:bg-indigo-50 focus:text-indigo
+                "
+                >Log In</a
+              >
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- Login dialog end-->
+    </div>
+    <!-- Login Modal End -->
+
+    <!-- Signup Modal Start -->
+    <div
+      class="
+        fixed
+        text-white
+        flex
+        items-center
+        justify-center
+        overflow-auto
+        z-50
+        bg-black bg-opacity-40
+        left-0
+        right-0
+        top-0
+        bottom-0
+      "
+      x-transition:enter="transition ease duration-300"
+      x-transition:enter-start="opacity-0"
+      x-transition:enter-end="opacity-100"
+      x-transition:leave="transition ease duration-300"
+      x-transition:leave-start="opacity-100"
+      x-transition:leave-end="opacity-0"
+      style="background-color: rgba(0, 0, 0, 0.5)"
+      x-show="isSignUpModalOpen"
+      :class="{ 'absolute inset-0 z-10 flex items-start justify-center': isSignUpModalOpen }"
+    >
+      <!-- SignUp dialog start-->
+      <div
+        class="corporate_bg_color rounded-md shadow-2xl p-6 sm:w-3/12 mx-10"
+        x-show="isSignUpModalOpen"
+        @click.away="isSignUpModalOpen = false"
+      >
+        <div class="flex justify-end">
+          <button
+            @click="isSignUpModalOpen = false"
+            class="bg-transparent text-white text-sm font-bold"
+          >
+            &#10005;
+          </button>
+        </div>
+        <!-- Title -->
+        <form action="">
+          <div class="modal-body">
+            <div class="flex flex-col gap-2 justify-center items-center">
+              <img
+                class="w-2/5"
+                src="../../src/images/logo/logoWhite.svg"
+                alt=""
+              />
+              <h3>Hello, Welcome to Jatri !</h3>
+            </div>
+
+            <!-- Input fields -->
+            <div class="flex flex-col items-start gap-3 my-8">
+              <div class="flex flex-col gap-1 w-full">
+                <label for="">Name</label>
+                <input
+                  type="text"
+                  placeholder="Your name"
+                  class="
+                    bg-white
+                    text-gray-800
+                    placeholder-gray-400
+                    w-full
+                    p-2
+                    rounded-md
+                    border-0
+                    focus:outline-none
+                  "
+                />
+              </div>
+
+              <div class="flex flex-col gap-1 w-full">
+                <label for="">Email</label>
+                <input
+                  type="text"
+                  placeholder="Your Email"
+                  class="
+                    bg-white
+                    text-gray-800
+                    placeholder-gray-400
+                    w-full
+                    p-2
+                    rounded-md
+                    border-0
+                    focus:outline-none
+                  "
+                />
+              </div>
+
+              <div class="flex flex-col gap-1 w-full">
+                <label for="">Password</label>
+                <input
+                  type="password"
+                  placeholder="Create Password"
+                  autocomplete="new-password"
+                  class="
+                    bg-white
+                    text-gray-800
+                    placeholder-gray-400
+                    w-full
+                    p-2
+                    rounded-md
+                    border-0
+                    focus:outline-none
+                  "
+                />
+              </div>
+            </div>
+            <!-- Buttons -->
+            <div class="flex flex-col justify-center gap-2">
+              <a
+                href="#"
+                target="_blank"
+                class="
+                  p-5
+                  text-center text-sm
+                  corporate_bg_dark
+                  rounded-md
+                  transition-colors
+                  duration-150
+                  ease-linear
+                  border-0
+                  text-white
+                  focus:outline-none focus:ring-0
+                  font-bold
+                  hover:bg-gray-500
+                  focus:bg-indigo-50 focus:text-indigo
+                "
+                >Sign Up</a
+              >
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- SignUp dialog end-->
+    </div>
+    <!-- Signup Modal End -->
+    <!-- modal Design End -->
+
+    <script src="../../src/js/app.js"></script>
+    <script src="../../src/js/slelect.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
+      defer
+    ></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>
